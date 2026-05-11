@@ -140,7 +140,7 @@
       font-size: .75rem; opacity: .6; transition: opacity .2s, border-color .2s;
 }
     .social-icon:hover { opacity: 1; border-color: #fff; }
-          .footer-bottom {
+          /* POLICY MODALS */ .policy-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.95); z-index:999; overflow-y:auto; padding:4rem 2rem; } .policy-overlay.active { display:block; } .policy-inner { max-width:800px; margin:0 auto; } .policy-inner h2 { font-size:clamp(1.8rem,4vw,2.5rem); font-weight:900; letter-spacing:-.03em; margin-bottom:.5rem; } .policy-inner .policy-date { font-size:.8rem; opacity:.4; margin-bottom:2.5rem; } .policy-inner h3 { font-size:1.1rem; font-weight:700; margin:2rem 0 .75rem; } .policy-inner p { opacity:.7; line-height:1.8; margin-bottom:1rem; font-size:.925rem; } .policy-inner ul { opacity:.7; line-height:1.8; margin-bottom:1rem; padding-left:1.5rem; font-size:.925rem; } .policy-close { position:fixed; top:1.5rem; right:1.5rem; background:none; border:1px solid #333; color:#fff; width:40px; height:40px; border-radius:50%; cursor:pointer; font-size:1.2rem; display:flex; align-items:center; justify-content:center; transition:border-color .2s; z-index:1000; } .policy-close:hover { border-color:#fff; } .policy-back { display:inline-block; margin-bottom:2rem; font-size:.875rem; opacity:.5; cursor:pointer; transition:opacity .2s; } .policy-back:hover { opacity:1; } .footer-bottom {
             border-top: 1px solid #111; padding-top: 1.5rem;
       font-size: .75rem; opacity: .3;
                        }
@@ -351,11 +351,11 @@
               <div class="footer-links">
                 <h4>Legal</h4>
                 <ul>
-                  <li><a href="#">Privacy Policy</a></li>
-                  <li><a href="#">Accessibility Statement</a></li>
-                  <li><a href="#">Shipping Policy</a></li>
-                  <li><a href="#">Terms &amp; Conditions</a></li>
-                  <li><a href="#">Refund Policy</a></li>
+                  <li><a href="#" onclick="openPolicy('privacy');return false;">Privacy Policy</a></li>
+                  <li><a href="#" onclick="openPolicy('accessibility');return false;">Accessibility Statement</a></li>
+                  <li><a href="#" onclick="openPolicy('shipping');return false;">Shipping Policy</a></li>
+                  <li><a href="#" onclick="openPolicy('terms');return false;">Terms &amp; Conditions</a></li>
+                  <li><a href="#" onclick="openPolicy('refund');return false;">Refund Policy</a></li>
                 </ul>
               </div>
             </div>
@@ -381,5 +381,5 @@
 });
   </script>
 
-    </body>
+    <!-- POLICY MODALS --><div id="modal-privacy" class="policy-overlay" role="dialog" aria-modal="true" aria-label="Privacy Policy">
     </html>
