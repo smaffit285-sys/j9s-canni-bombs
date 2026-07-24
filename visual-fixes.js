@@ -1,25 +1,16 @@
 (() => {
-  const stylesheet = document.createElement('link');
-  stylesheet.rel = 'stylesheet';
-  stylesheet.href = 'scale-fixes.css?v=2';
-  document.head.appendChild(stylesheet);
-
-  const stages = {
-    clocked: '<span class="artisan-bomb"></span><span class="artisan-bomb small"></span><span class="artisan-bomb small right"></span>',
-    dnd: '<span class="artisan-bomb"></span><span class="artisan-bomb small"></span><span class="artisan-bomb small right"></span>',
-    main: '<span class="artisan-bomb"></span><span class="artisan-bomb small"></span><span class="artisan-bomb small right"></span>'
-  };
-
-  document.querySelectorAll('.collection-card[data-collection]').forEach(card => {
-    const key = card.dataset.collection;
-    const oldImage = card.querySelector('img');
-    if (oldImage) oldImage.remove();
-    if (!card.querySelector('.collection-stage')) {
-      const stage = document.createElement('div');
-      stage.className = `collection-stage ${key}`;
-      stage.setAttribute('aria-hidden', 'true');
-      stage.innerHTML = stages[key] || stages.clocked;
-      card.prepend(stage);
-    }
+  const asset='assets/hero.webp?v=4';
+  const hero=document.querySelector('.hero-image img');
+  if(hero){hero.src=asset;hero.alt='Handmade botanical bath bombs arranged on natural linen';hero.style.objectPosition='50% 50%'}
+  const story=document.querySelector('.story-image img');
+  if(story){story.src=asset;story.alt='Botanical bath bombs handmade in small batches';story.style.objectPosition='14% 48%'}
+  const positions={clocked:'78% 55%',dnd:'12% 42%',main:'38% 76%'};
+  document.querySelectorAll('.collection[data-filter]').forEach(card=>{
+    const key=card.dataset.filter;
+    const image=card.querySelector('img');
+    if(!image)return;
+    image.src=asset;
+    image.style.objectPosition=positions[key]||'50% 50%';
+    image.alt=key==='clocked'?'Fresh botanical bath bombs':key==='dnd'?'Lavender botanical bath bombs':'Rose botanical bath bombs';
   });
 })();
