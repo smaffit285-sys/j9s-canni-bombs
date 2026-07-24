@@ -1,474 +1,106 @@
 <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>J9's Canni-Bombs</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="https://fonts.googhleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap">
-    <style>
-      *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; background: #000; color: #fff; }
-        a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; height: auto; display: block; }
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>J9's Canni-Bombs | Handmade Cannabinoid-Infused Bath Rituals</title>
+  <meta name="description" content="Handmade cannabinoid-infused bath bombs crafted in South Florida with botanicals, skin-loving oils, and expressive fragrance. Choose your mood and soak deeper.">
+  <meta name="theme-color" content="#241324">
+  <meta property="og:title" content="J9's Canni-Bombs | Soak. Exhale. Come Back to You.">
+  <meta property="og:description" content="Small-batch cannabinoid-infused bath rituals, handmade with botanicals and love in South Florida.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://static.wixstatic.com/media/37d64c_bf50373e614d4821a4f42029b9cd95eb~mv2.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"J9's Canni-Bombs","description":"Handmade cannabinoid-infused bath bombs crafted in South Florida.","email":"TinkJenine1234@gmail.com","address":{"@type":"PostalAddress","addressLocality":"North Miami Beach","addressRegion":"FL","addressCountry":"US"}}</script>
+</head>
+<body>
+  <div class="announcement">Handmade in South Florida <span>✦</span> Cannabinoid-infused <span>✦</span> Small batch. Big intention.</div>
+  <header class="header">
+    <button class="menu" id="menuBtn" aria-label="Open menu">☰</button>
+    <nav class="nav left"><a href="#collections">Collections</a><a href="#shop">Shop</a><a href="#story">Our story</a></nav>
+    <a class="brand" href="#top"><b>J9's</b><strong>Canni-Bombs</strong><small>Soak deeper. Feel more.</small></a>
+    <nav class="nav right"><a href="#faq">FAQ</a><a href="mailto:TinkJenine1234@gmail.com">Contact</a><button class="bag-btn" id="bagBtn" aria-label="Open ritual bag">Bag <span id="bagCount">0</span></button></nav>
+  </header>
 
-    /* NAV */
-    nav {
-            position: fixed; top: 0; width: 100%; z-index: 100;
-      background: #000; padding: 1rem 2rem;
-      display: flex; justify-content: space-between; align-items: center;
-      border-bottom: 1px solid #111;
-}
-    .logo { font-size: 1.1rem; font-weight: 700; letter-spacing: -.02em; }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a { font-size: .875rem; opacity: .65; transition: opacity .2s, color .2s; }
-    .nav-links a:hover, .nav-links a.active { opacity: 1; color: #a855f7; }
-        .nav-cart { font-size: .875rem; opacity: .65; }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: #fff; }
-
-    /* HERO */
-    .hero {
-            min-height: 100vh; padding-top: 64px;
-      background: #000; display: flex; flex-direction: column;
-                    }
-    .hero-text {
-      padding: 4rem 2rem 2rem;
-      text-align: center;
-}
-    .hero-text h1 {
-      font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 900;
-      line-height: 1.05; letter-spacing: -.03em; margin-bottom: 1rem;
-}
-    .hero-text p { font-size: 1rem; opacity: .7; max-width: 480px; margin: 0 auto 2rem; }
-          .btn {
-      display: inline-block; padding: .85rem 2.5rem;
-            background: #000; color: #fff; border: 2px solid #fff;
-      font-size: .875rem; font-weight: 600; letter-spacing: .05em;
-      text-transform: uppercase; transition: background .2s, color .2s;
-            cursor: pointer;
-}
-          .btn:hover { background: #fff; color: #000; }
-    .btn-purple { background: #a855f7; border-color: #a855f7; }
-    .btn-purple:hover { background: #9333ea; border-color: #9333ea; color: #fff; }
-    .hero-images {
-      display: grid; grid-template-columns: 1fr 1fr; flex: 1;
-      }
-          .hero-images img { width: 100%; height: 420px; object-fit: cover; }
-
-          /* SECTIONS */
-    section { padding: 5rem 2rem; }
-    .section-title { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; letter-spacing: -.03em; margin-bottom: .5rem; }
-    .section-subtitle { font-size: .9rem; opacity: .6; margin-bottom: 3rem; }
-
-    /* PRODUCTS */
-    #products { background: #000; }
-    .products-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; }
-    .products-grid {
-            display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1.5rem;
-}
-          .product-card { background: #0a0a0a; border: 1px solid #1a1a1a; transition: border-color .2s; }
-    .product-card:hover { border-color: #333; }
-    .product-card img { width: 100%; height: 200px; object-fit: cover; background: #111; }
-    .product-card-body { padding: 1rem; }
-    .product-card-body h3 { font-size: .875rem; font-weight: 600; margin-bottom: .4rem; }
-    .product-price { font-size: .875rem; opacity: .5; margin-bottom: .25rem; }
-    .product-amount { font-size: .95rem; font-weight: 700; margin-bottom: .5rem; }
-    .product-desc { font-size: .775rem; opacity: .7; line-height: 1.5; margin-top: .5rem; }
-
-    /* ABOUT */
-    #about { background: #000; }
-          .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
-    .about-content { padding: 4rem 3rem 4rem 0; display: flex; flex-direction: column; justify-content: center; }
-    .about-content h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; letter-spacing: -.03em; margin-bottom: 1.5rem; }
-    .about-content p { opacity: .7; line-height: 1.7; }
-    .about-feature { margin-top: 2.5rem; }
-    .about-feature h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: .5rem; }
-    .about-feature p { opacity: .6; font-size: .9rem; }
-    .about-image img { width: 100%; height: 100%; object-fit: cover; min-height: 500px; }
-
-    /* PRESS */
-    #press { background: #000; }
-    .press-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; align-items: center; }
-    .press-content h2 { font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 900; letter-spacing: -.03em; margin-bottom: 1rem; }
-    .press-content p { opacity: .6; line-height: 1.7; font-size: .95rem; }
-    .press-logos { padding: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: center; }
-    .press-logo {
-            display: flex; align-items: center; justify-content: center;
-      padding: 1.5rem; border: 1px solid #222; min-height: 80px;
-}
-    .press-logo span { font-size: 1rem; font-weight: 700; opacity: .7; letter-spacing: .05em; }
-
-    /* SOCIAL / INSTAGRAM */
-    #social { background: #000; }
-    .instagram-grid {
-            display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px;
-      margin-top: 2rem;
-}
-    .instagram-grid img { width: 100%; aspect-ratio: 1; object-fit: cover; }
-
-    /* VIDEO */
-    #video { background: #000; min-height: 300px; display: flex; flex-direction: column; justify-content: center; }
-    .video-placeholder {
-            border: 2px dashed #222; padding: 4rem; text-align: center;
-      max-width: 700px; margin: 0 auto;
-}
-    .video-placeholder p { opacity: .4; margin-top: 1rem; }
-
-    /* FOOTER */
-    footer {
-            background: #000; border-top: 1px solid #111;
-      padding: 4rem 2rem 2rem;
-}
-    .footer-grid {
-            display: grid; grid-template-columns: 2fr 1fr 1fr;
-      gap: 3rem; margin-bottom: 3rem;
-}
-    .footer-brand h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 1.5rem; }
-    .footer-contact p { font-size: .875rem; opacity: .6; line-height: 2; }
-    .footer-links h4 { font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; opacity: .4; margin-bottom: 1rem; }
-    .footer-links ul { list-style: none; }
-    .footer-links li { margin-bottom: .6rem; }
-    .footer-links a { font-size: .875rem; opacity: .5; transition: opacity .2s; }
-    .footer-links a:hover { opacity: 1; }
-    .footer-social { display: flex; gap: 1rem; margin-top: 1.5rem; }
-    .social-icon {
-            width: 38px; height: 38px; border-radius: 50%;
-      border: 1px solid #333; display: flex; align-items: center; justify-content: center;
-      font-size: .75rem; opacity: .6; transition: opacity .2s, border-color .2s;
-}
-    .social-icon:hover { opacity: 1; border-color: #fff; }
-          /* POLICY MODALS */ .policy-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.95); z-index:999; overflow-y:auto; padding:4rem 2rem; } .policy-overlay.active { display:block; } .policy-inner { max-width:800px; margin:0 auto; } .policy-inner h2 { font-size:clamp(1.8rem,4vw,2.5rem); font-weight:900; letter-spacing:-.03em; margin-bottom:.5rem; } .policy-inner .policy-date { font-size:.8rem; opacity:.4; margin-bottom:2.5rem; } .policy-inner h3 { font-size:1.1rem; font-weight:700; margin:2rem 0 .75rem; } .policy-inner p { opacity:.7; line-height:1.8; margin-bottom:1rem; font-size:.925rem; } .policy-inner ul { opacity:.7; line-height:1.8; margin-bottom:1rem; padding-left:1.5rem; font-size:.925rem; } .policy-close { position:fixed; top:1.5rem; right:1.5rem; background:none; border:1px solid #333; color:#fff; width:40px; height:40px; border-radius:50%; cursor:pointer; font-size:1.2rem; display:flex; align-items:center; justify-content:center; transition:border-color .2s; z-index:1000; } .policy-close:hover { border-color:#fff; } .policy-back { display:inline-block; margin-bottom:2rem; font-size:.875rem; opacity:.5; cursor:pointer; transition:opacity .2s; } .policy-back:hover { opacity:1; } .footer-bottom {
-            border-top: 1px solid #111; padding-top: 1.5rem;
-      font-size: .75rem; opacity: .3;
-                       }
-
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
-      .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 60px; left: 0; width: 100%; background: #000; padding: 1rem 2rem; gap: 1rem; }
-      .hero-images { grid-template-columns: 1fr; }
-      .hero-images img { height: 250px; }
-      .about-grid { grid-template-columns: 1fr; }
-      .about-content { padding: 2rem 0; }
-      .press-grid { grid-template-columns: 1fr; }
-      .press-logos { grid-template-columns: 1fr 1fr; }
-      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .instagram-grid { grid-template-columns: repeat(2, 1fr); }
-}
-  </style>
-        </head>
-        <body>
-
-          <!-- NAVIGATION -->
-          <nav>
-            <a href="#home" class="logo">J9's Canni-Bombs</a>
-            <div class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')">
-              <span></span><span></span><span></span>
-    </div>
-            <ul class="nav-links">
-              <li><a href="#home">Home</a></li>
-              <li><a href="#home">Welcome</a></li>
-              <li><a href="#products">Products</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#press">Press</a></li>
-            </ul>
-            <span class="nav-cart">0</span>
-          </nav>
-
-          <!-- HERO -->
-          <section class="hero" id="home">
-            <div class="hero-text">
-              <h1>Relaxation Never Looked So Good!</h1>
-              <p>Discover premium bath bombs that redefine your relaxation routines.</p>
-      <a href="#products" class="btn">Shop Now</a>
-            </div>
-            <div class="hero-images">
-              <img src="https://static.wixstatic.com/media/37d64c_bf50373e614d4821a4f42029b9cd95eb~mv2.jpg" alt="Bath bomb product" loading="lazy">
-              <img src="https://static.wixstatic.com/media/37d64c_58f8bd354f034ef9965c625e338ead72~mv2.jpg" alt="Bath bomb relaxation" loading="lazy">
-            </div>
-          </section>
-
-          <!-- PRODUCTS -->
-          <section id="products">
-            <div class="products-header">
-              <h2 class="section-title">Our Bath Bombs</h2>
-      <a href="#products" class="btn" style="font-size:.75rem;padding:.6rem 1.5rem">Explore Now</a>
-            </div>
-            <div class="products-grid">
-              <div class="product-card">
-                <div class="product-card-body">
-                  <h3>Sweet Wood Vanilla Sandalwood</h3>
-                  <p class="product-price">Price</p>
-                  <p class="product-amount">$10.00</p>
-                  <p class="product-desc">Vanilla and sandalwood come together in the sweet woody scent warmth infused with CBD and THC, creating a deeply soothing experience that transforms your bath into a moment of pure tranquility. Designed for those seeking harmony and relief, this bomb elevates your self-care routine with natural, potent ingredients.</p>
-                </div>
-              </div>
-              <div class="product-card">
-                <div class="product-card-body">
-                  <h3>Very Berries and Cream</h3>
-                  <p class="product-price">Price</p>
-                  <p class="product-amount">$10.00</p>
-                  <p class="product-desc">Indulge in the soothing blend of strawberry, blueberry, raspberry, and vanilla essential oils infused with premium CBD and THC. Very Berries and Cream offers a luxurious bath experience that redefines relaxation, promoting calm and total rejuvenation.</p>
-                </div>
-              </div>
-              <div class="product-card">
-                <div class="product-card-body">
-                  <h3>Very Very Berry</h3>
-                  <p class="product-price">Price</p>
-                  <p class="product-amount">$10.00</p>
-                  <p class="product-desc">Experience ultimate relaxation with Very Very Berry, a luxurious CBD bath bomb infused with strawberry, blueberry, and raspberry essential oils combined with CBD THC. This blend offers a soothing and revitalizing soak designed to calm your body and mind.</p>
-                </div>
-              </div>
-              <div class="product-card">
-                <div class="product-card-body">
-                  <h3>Sweet Blueberry Antioxidant</h3>
-                  <p class="product-price">Price</p>
-                  <p class="product-amount">$10.00</p>
-                  <p class="product-desc">Experience ultimate relaxation with Sweet Blueberry Antioxidant, combining blueberry essential oils infused with CBD THC to help detox the mind and body. It supports your natural balance while delivering a refreshing antioxidant boost.</p>
-                </div>
-              </div>
-              <div class="product-card">
-                <div class="product-card-body">
-                  <h3>Sweet Citrus Orange Cream</h3>
-                  <p class="product-price">Price</p>
-                  <p class="product-amount">$10.00</p>
-                  <p class="product-desc">Experience ultimate relaxation with Sweet Citrus Orange Cream, combining the uplifting essence of orange and vanilla essential oils infused with CBD and THC, designed to promote calm and well-being. Elevate your bath routine with this harmonious fusion.</p>
-                </div>
-              </div>
-              <div class="product-card">
-                <div class="product-card-body">
-                  <h3>Sweetbliss Strawberries and Cream</h3>
-                  <p class="product-price">Price</p>
-                  <p class="product-amount">$10.00</p>
-                  <p class="product-desc">This CBD THC infused bath bomb blends a mix of strawberry and vanilla essential oils to create a soothing, aromatic escape that nurtures both body and mind. Sweetbliss delivers a calming soak designed to melt away stress while elevating your well-being.</p>
-                </div>
-              </div>
-              <div class="product-card">
-                <div class="product-card-body">
-                  <h3>Renew Sweet Cherry Blossom Vanilla</h3>
-                  <p class="product-price">Price</p>
-                  <p class="product-amount">$10.00</p>
-                  <p class="product-desc">Renew your senses with this lovely spring scented CBD THC infused bath bomb, designed to elevate your self-care routine with soothing floral notes of sweet cherry blossom and warm vanilla. Let Renew transform your bath into a peaceful escape.</p>
-                </div>
-              </div>
-              <div class="product-card">
-                <div class="product-card-body">
-                  <h3>Mellow Out Orange Sandalwood</h3>
-                  <p class="product-price">Price</p>
-                  <p class="product-amount">$10.00</p>
-                  <p class="product-desc">This CBD THC infused orange sandalwood bathbomb combines soothing citrus notes with the calming essence of sandalwood, creating a harmonious blend that relaxes both body and mind. Perfect for those seeking a refined way to unwind.</p>
-                </div>
-              </div>
-              <div class="product-card">
-                <div class="product-card-body">
-                  <h3>Tingling Nights Lavender Tea Tree</h3>
-                  <p class="product-price">Price</p>
-                  <p class="product-amount">$10.00</p>
-                  <p class="product-desc">This CBD and THC infused bomb transforms your bath into a tranquil escape, helping you sleep great and have a nice tingling relaxing bath. Let the calming blend of lavender and tea tree oils enhance your nightly ritual.</p>
-                </div>
-              </div>
-              <div class="product-card">
-                <div class="product-card-body">
-                  <h3>Uplifting Raspberry Lemon Drop</h3>
-                  <p class="product-price">Price</p>
-                  <p class="product-amount">$10.00</p>
-                  <p class="product-desc">Uplift your senses with a gentle kiss of raspberry lemon in this expertly crafted CBD and THC bath bomb. Infused with vitamin E and coconut oil, it nourishes and smooths your skin while delivering a soothing, uplifting experience.</p>
-                </div>
-              </div>
-              <div class="product-card">
-                <div class="product-card-body">
-                  <h3>Jasmine Flower</h3>
-                  <p class="product-price">Price</p>
-                  <p class="product-amount">$10.00</p>
-                  <p class="product-desc">A sophisticated bath bomb with a subtle shimmer and a captivating jasmine scent, expertly blended with CBD and natural botanicals for an evening of pure indulgence and calm. This carefully crafted formula delivers a luxurious bathing experience.</p>
-                </div>
-              </div>
-              <div class="product-card">
-                <div class="product-card-body">
-                  <h3>Purple Dream Lavender Vanilla</h3>
-                  <p class="product-price">Price</p>
-                  <p class="product-amount">$10.00</p>
-                  <p class="product-desc">A rich, shimmering purple bath bomb with subtle scents of lavender and vanilla. Enriched with CBD, THC coconut oil, and vitamin E oil, it delivers a decadent, therapeutic soak that nourishes both body and mind.</p>
-                </div>
-              </div>
-              <div class="product-card">
-                <div class="product-card-body">
-                  <h3>Romantic Rose Petal</h3>
-                  <p class="product-price">Price</p>
-                  <p class="product-amount">$10.00</p>
-                  <p class="product-desc">An elegant, deep rose-pink bath bomb adorned with real rose petals. Infused with premium CBD, THC coconut oil, and vitamin E oil, it nourishes your skin while delivering gentle, calming effects. The delicate floral fragrance transforms your bath into a serene escape.</p>
-                </div>
-              </div>
-              <div class="product-card">
-                <div class="product-card-body">
-                  <h3>Tingling Tea Tree</h3>
-                  <p class="product-price">Price</p>
-                  <p class="product-amount">$10.00</p>
-                  <p class="product-desc">A cool, mint-green bath bomb featuring a smooth, frosted appearance. Expertly formulated with CBD, THC, and Tea Tree oil, this blend harnesses rejuvenating and moisturizing properties to leave you and your skin feeling revived and smooth.</p>
-                </div>
-              </div>
-              <div class="product-card">
-                <div class="product-card-body">
-                  <h3>Sinus Relief Eucalyptus Bomb</h3>
-                  <p class="product-price">Price</p>
-                  <p class="product-amount">$10.00</p>
-                  <p class="product-desc">A vibrant shimmering green bath bomb featuring a refreshing eucalyptus aroma that clears your breath and eases sinus pressure. Infused with carefully balanced CBD and THC, this bath bomb promotes relaxation while targeting sinus discomfort.</p>
-                </div>
-              </div>
-              <div class="product-card">
-                <div class="product-card-body">
-                  <h3>Muscle Reliving Peppermint</h3>
-                  <p class="product-price">Price</p>
-                  <p class="product-amount">$10.00</p>
-                  <p class="product-desc">A white and red bath bomb infused with refreshing peppermint and eucalyptus oils. This carefully crafted blend is designed to soothe sore muscles using a potent combination of CBD and THC herbal extracts, delivering effective relief and calming comfort.</p>
-                </div>
-              </div>
-              <div class="product-card">
-                <div class="product-card-body">
-                  <h3>Soft Skin Strawberry Lemonade</h3>
-                  <p class="product-price">Price</p>
-                  <p class="product-amount">$10.00</p>
-                  <p class="product-desc">A soft fruity scent bath bomb with an extra dose of vitamin E oil to make you feel extra soft and smooth. This refreshing blend of strawberry and lemon essential oils, enriched with CBD and THC, delivers a soothing and invigorating soak.</p>
-                </div>
-              </div>
-              <div class="product-card">
-                <div class="product-card-body">
-                  <h3>Chamomile Bliss Bomb</h3>
-                  <p class="product-price">Price</p>
-                  <p class="product-amount">$10.00</p>
-                  <p class="product-desc">A gentle light yellow bath bomb with dried chamomile flowers infused with essential oil, coconut oils, CBD, and THC for a calming experience. This luxurious blend promotes tranquility and deep relaxation.</p>
-                </div>
-              </div>
-              <div class="product-card">
-                <div class="product-card-body">
-                  <h3>Night Night Lavender</h3>
-                  <p class="product-price">Price</p>
-                  <p class="product-amount">$10.00</p>
-                  <p class="product-desc">A relaxing Lavender bath bomb with a light purple shimmer dusted with dried lavender buds. Infused with CBD, THC, and calming essential oils, this bath bomb transforms your soak into a soothing ritual that eases both mind and body.</p>
-                </div>
-              </div>
-              <div class="product-card">
-                <div class="product-card-body">
-                  <h3>Citrus Overload Orange Lemonade</h3>
-                  <p class="product-price">Price</p>
-                  <p class="product-amount">$10.00</p>
-                  <p class="product-desc">This revitalizing bath bomb blends orange and lemon essential oils infused with CBD and THC to awaken your scents and elevate your self-care ritual. It delivers a balanced, invigorating aroma while promoting deep relaxation.</p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <!-- ABOUT -->
-          <section id="about" style="padding:0">
-            <div class="about-grid">
-              <div class="about-content" style="padding:4rem 3rem">
-                <h2>Our Essence</h2>
-                <p>J9's Canni-Bombs specializes in high-quality CBD and THC bath bombs. Each product is crafted to enhance relaxation and alleviate stress.</p>
-                <div class="about-feature">
-                  <h3>What We Offer</h3>
-          <p>Uniquely designed to elevate your bathing experience.</p>
-        </div>
-        <div class="about-feature">
-                  <h3>Why Choose Us</h3>
-          <p>Our vibrant, fun bath bombs are perfect for relaxation.</p>
-                </div>
-              </div>
-              <div class="about-image">
-                <img src="https://static.wixstatic.com/media/37d64c_58f8bd354f034ef9965c625e338ead72~mv2.jpg" alt="About J9's Canni-Bombs" style="width:100%;height:100%;object-fit:cover;min-height:500px">
-              </div>
-            </div>
-          </section>
-
-          <!-- PRESS -->
-          <section id="press">
-            <div class="press-grid">
-              <div class="press-content">
-                <h2 class="section-title">In The News</h2>
-        <p class="section-subtitle">As Featured In</p>
-        <p>J9's Canni-Bombs has been spotlighted in various wellness magazines for our innovative products that promise a joyful and relaxing transformation for your bath time.</p>
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Bath rituals for every mood</p>
+        <h1>Soak. Exhale.<em>Come back to you.</em></h1>
+        <p class="lede">Handcrafted cannabinoid-infused bath bombs made with lush botanicals, skin-loving oils, expressive fragrance, and a whole lot of heart.</p>
+        <div class="actions"><a class="btn primary" href="#shop">Shop bath bombs</a><a class="btn secondary" href="#collections">Find your ritual</a></div>
+        <div class="proof"><span>♡ Made with love</span><span>❧ Real botanicals</span><span>✦ Two generous sizes</span></div>
       </div>
-      <div class="press-logos">
-                <div class="press-logo"><span>&#9889; energator</span></div>
-                <div class="press-logo"><span>GLM</span></div>
-                <div class="press-logo"><span>mtvs.news</span></div>
-                <div class="press-logo"><span>GA</span></div>
-              </div>
-            </div>
-          </section>
+      <div class="hero-image">
+        <img src="https://static.wixstatic.com/media/37d64c_bf50373e614d4821a4f42029b9cd95eb~mv2.jpg" alt="Handmade botanical bath bombs" width="1200" height="800">
+        <div class="price-note"><b>Ritual $11 · Immersion $20</b><span>Choose the little luxury or go all the way in.</span></div>
+      </div>
+    </section>
 
-          <!-- SOCIAL / INSTAGRAM -->
-          <section id="social">
-            <h2 class="section-title">Follow Us</h2>
-            <div class="instagram-grid">
-              <img src="https://static.wixstatic.com/media/37d64c_bf50373e614d4821a4f42029b9cd95eb~mv2.jpg" alt="Instagram post" loading="lazy">
-              <img src="https://static.wixstatic.com/media/37d64c_58f8bd354f034ef9965c625e338ead72~mv2.jpg" alt="Instagram post" loading="lazy">
-              <img src="https://static.wixstatic.com/media/37d64c_a541e71cb20544a698df58900ef91f1e~mv2.jpg" alt="Instagram post" loading="lazy">
-              <img src="https://static.wixstatic.com/media/37d64c_ac68404a820a40b495e671fb8826f625~mv2.jpg" alt="Instagram post" loading="lazy">
-            </div>
-          </section>
+    <section class="trust">
+      <div><b>Cannabinoid infused</b><span>A thoughtful addition to your bath ritual.</span></div>
+      <div><b>Handmade in small batches</b><span>Mixed, pressed, finished, and packed by hand.</span></div>
+      <div><b>Botanical fragrance</b><span>Florals, citrus, herbs, woods, and fruits.</span></div>
+      <div><b>Made with intention</b><span>For the moment the day becomes yours.</span></div>
+    </section>
 
-          <!-- VIDEO -->
-          <section id="video">
-            <div class="video-placeholder">
-              <h2 class="section-title" style="font-size:1.5rem">Watch Now</h2>
-              <p>This channel is coming soon!</p>
-            </div>
-          </section>
+    <section class="section" id="collections">
+      <div class="heading"><div><p class="eyebrow">Find your mood</p><h2>Three rituals.<br>Countless reasons.</h2></div><p>The catalog is generous; the decision is simple. Start with how you want the bath to feel, then choose the scent that sounds like your kind of evening.</p></div>
+      <div class="collections">
+        <a class="collection clocked" href="#shop" data-filter="clocked"><img src="https://static.wixstatic.com/media/37d64c_a541e71cb20544a698df58900ef91f1e~mv2.jpg" alt="Fresh botanical bath collection"><div><small>Collection 01</small><h3>Clocked Out</h3><p>For long shifts, tired feet, hot days, and the glorious moment when nobody needs anything else from you.</p><b>Explore collection →</b></div></a>
+        <a class="collection dnd" href="#shop" data-filter="dnd"><img src="https://static.wixstatic.com/media/37d64c_58f8bd354f034ef9965c625e338ead72~mv2.jpg" alt="Lavender evening bath collection"><div><small>Collection 02</small><h3>Do Not Disturb</h3><p>For slow evenings, deep exhales, warm water, and shutting the whole world down for a little while.</p><b>Explore collection →</b></div></a>
+        <a class="collection main" href="#shop" data-filter="main"><img src="https://static.wixstatic.com/media/37d64c_ac68404a820a40b495e671fb8826f625~mv2.jpg" alt="Romantic floral bath collection"><div><small>Collection 03</small><h3>Main Character Bath</h3><p>For beautiful water, romance, gifting, celebration, and making the bath the entire event.</p><b>Explore collection →</b></div></a>
+      </div>
 
-          <!-- FOOTER -->
-          <footer>
-            <div class="footer-grid">
-              <div class="footer-brand">
-                <h3>J9's Canni-Bombs</h3>            <p>By Jenine Cummings</p>
-                <div class="footer-contact">
-                  <p>(650) 784-1578</p>
-                  <p>TinkJenine1234@gmail.com</p>
-                  <p>North Miami Beach, FL 33179</p>
-                </div>
-                <div class="footer-social">
-                  <a href="#" class="social-icon" aria-label="Facebook">f</a>
-                  <a href="#" class="social-icon" aria-label="Instagram">&#9679;</a>
-                  <a href="#" class="social-icon" aria-label="Twitter/X">X</a>
-                  <a href="#" class="social-icon" aria-label="TikTok">&#9835;</a>
-                </div>
-              </div>
-              <div class="footer-links">
-                <h4>Legal</h4>
-                <ul>
-                  <li><a href="#" onclick="openPolicy('privacy');return false;">Privacy Policy</a></li>
-                  <li><a href="#" onclick="openPolicy('accessibility');return false;">Accessibility Statement</a></li>
-                  <li><a href="#" onclick="openPolicy('shipping');return false;">Shipping Policy</a></li>
-                  <li><a href="#" onclick="openPolicy('terms');return false;">Terms &amp; Conditions</a></li>
-                  <li><a href="#" onclick="openPolicy('refund');return false;">Refund Policy</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="footer-bottom">
-              <p>&copy; 2035 by J9's Canni-Bombs. All rights reserved.</p>
-            </div>
-          </footer>
+      <div class="bundle">
+        <div><p class="eyebrow">The easiest first yes</p><h2>The Three-Mood<br>Immersion Trio</h2><p>One full-size favorite from each collection: a fresh reset, a slow exhale, and something unapologetically beautiful.</p><div class="bundle-price"><strong>$54</strong><span>Save $6</span></div><button class="btn primary" id="addTrio">Add the trio</button></div>
+        <div class="trio" aria-label="Three bath bombs"><i class="bomb green"></i><i class="bomb purple"></i><i class="bomb rose"></i></div>
+      </div>
+    </section>
 
-          <script>
-            // Active nav link on scroll
-            const sections = document.querySelectorAll('section[id], .hero[id]');
-    const navLinks = document.querySelectorAll('.nav-links a');
-   function openPolicy(type){document.querySelectorAll('.policy-overlay').forEach(function(el){el.classList.remove('active');});var modal=document.getElementById('modal-'+type);if(modal){modal.classList.add('active');modal.scrollTop=0;document.body.style.overflow='hidden';}} function closePolicy(){document.querySelectorAll('.policy-overlay').forEach(function(el){el.classList.remove('active');});document.body.style.overflow='';} document.addEventListener('keydown',function(e){if(e.key==='Escape')closePolicy();});</script> window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(s => {
-              const top = s.getBoundingClientRect().top;
-        if (top <= 80) current = s.id;
-});
-      navLinks.forEach(a => {
-                a.classList.remove('active');
-        if (a.getAttribute('href') === '#' + current) a.classList.add('active');
-});
-});
-  </script>
+    <section class="section shop" id="shop">
+      <div class="heading"><div><p class="eyebrow">The scent library</p><h2>Choose the bath<br>that calls you.</h2></div><p>Every scent is available in Ritual size for an easy introduction or Immersion size for the full handmade experience.</p></div>
+      <div class="filters"><button class="active" data-filter="featured">Featured</button><button data-filter="clocked">Clocked Out</button><button data-filter="dnd">Do Not Disturb</button><button data-filter="main">Main Character Bath</button><button data-filter="all">All scents</button><span>Ritual $11 · Immersion $20</span></div>
+      <div class="products" id="productGrid"></div>
+      <button class="btn secondary show-more" id="showMore">Show more scents</button>
+    </section>
 
-    <!-- POLICY MODALS --><div id="modal-privacy" class="policy-overlay" role="dialog" aria-modal="true" aria-label="Privacy Policy"><button class="policy-close" onclick="closePolicy()">&times;</button><div class="policy-inner"><span class="policy-back" onclick="closePolicy()">&#8592; Back</span><h2>Privacy Policy</h2><p class="policy-date">Effective: Jan 1, 2025 | Updated: May 10, 2026</p><p>J9s Canni-Bombs protects your privacy. This policy explains how we collect and use your information.</p><h3>Information We Collect</h3><p>We collect name, email, phone, address, and payment info when you order. We also collect technical data via cookies.</p><h3>How We Use It</h3><p>We use your info to process orders, communicate, improve our site, and prevent fraud.</p><h3>Sharing</h3><p>We do not sell your data. We share only with service providers who assist our operations.</p><h3>Security</h3><p>We use industry-standard security measures to protect your information.</p><h3>Contact</h3><p>TinkJenine1234@gmail.com | (650) 784-1578 | North Miami Beach, FL 33179</p></div></div><div id="modal-accessibility" class="policy-overlay" role="dialog" aria-modal="true" aria-label="Accessibility Statement"><button class="policy-close" onclick="closePolicy()">&times;</button><div class="policy-inner"><span class="policy-back" onclick="closePolicy()">&#8592; Back</span><h2>Accessibility Statement</h2><p class="policy-date">Effective: Jan 1, 2025 | Updated: May 10, 2026</p><p>J9s Canni-Bombs is committed to ensuring our website is accessible to all users, including those with disabilities. We strive to meet WCAG 2.1, Level AA standards.</p><h3>Our Commitment</h3><p>We continually review and improve our website to provide an inclusive experience for all visitors.</p><h3>Measures We Take</h3><p>We provide alt text for images, ensure color contrast, support keyboard navigation, use semantic HTML, and provide clear labels.</p><h3>Feedback</h3><p>Contact TinkJenine1234@gmail.com | (650) 784-1578 with accessibility questions or concerns. We respond within 2 business days.</p></div></div><div id="modal-shipping" class="policy-overlay" role="dialog" aria-modal="true" aria-label="Shipping Policy"><button class="policy-close" onclick="closePolicy()">&times;</button><div class="policy-inner"><span class="policy-back" onclick="closePolicy()">&#8592; Back</span><h2>Shipping Policy</h2><p class="policy-date">Effective: Jan 1, 2025 | Updated: May 10, 2026</p><p>Here is everything you need to know about how we process and ship your orders.</p><h3>Order Processing</h3><p>Orders are processed within 2-3 business days. You will receive a confirmation and tracking email once your order ships.</p><h3>Domestic Shipping</h3><p>We ship to all 50 states. Standard shipping takes 5-7 business days. Expedited shipping (2-3 days) available at checkout. Free standard shipping on orders over $50.</p><h3>CBD &amp; THC Notice</h3><p>Verify that our products are legal in your state before ordering. We only ship where CBD/THC bath products are permitted.</p><h3>Lost or Damaged Packages</h3><p>Contact us within 7 days at TinkJenine1234@gmail.com or (650) 784-1578. We will arrange a replacement or refund.</p></div></div><div id="modal-terms" class="policy-overlay" role="dialog" aria-modal="true" aria-label="Terms and Conditions"><button class="policy-close" onclick="closePolicy()">&times;</button><div class="policy-inner"><span class="policy-back" onclick="closePolicy()">&#8592; Back</span><h2>Terms &amp; Conditions</h2><p class="policy-date">Effective: Jan 1, 2025 | Updated: May 10, 2026</p><p>By using our website or purchasing our products, you agree to these Terms. Please read them carefully.</p><h3>Age Requirement</h3><p>You must be 21 or older to purchase our products. By placing an order, you confirm you meet this requirement.</p><h3>Products</h3><p>We sell CBD and THC-infused bath bombs for external use only. Not intended to diagnose, treat, cure, or prevent any condition.</p><h3>Intellectual Property</h3><p>All website content is the exclusive property of J9s Canni-Bombs, protected by copyright law.</p><h3>Limitation of Liability</h3><p>J9s Canni-Bombs is not liable for indirect, incidental, or consequential damages from product or website use.</p><h3>Governing Law</h3><p>These Terms are governed by the laws of the State of Florida. Disputes resolved in courts of Miami-Dade County.</p><h3>Contact</h3><p>TinkJenine1234@gmail.com | (650) 784-1578 | North Miami Beach, FL 33179</p></div></div>
-    </html>
+    <section class="story" id="story">
+      <div class="story-image"><img src="https://static.wixstatic.com/media/37d64c_58f8bd354f034ef9965c625e338ead72~mv2.jpg" alt="Candlelit botanical bath ritual"></div>
+      <div class="story-copy"><p class="eyebrow">Made by human hands</p><h2>More than a bath bomb.<em>A little piece of care.</em></h2><p>Jenine first made these bath bombs in California, where friends kept coming back for the fragrance, the color, and the way a handmade gift could turn an ordinary night into something worth slowing down for.</p><p>Now the ritual is being rebuilt in South Florida: small batches, expressive scents, real botanical details, and the simple belief that the person who spends all day taking care of everyone else deserves something made especially for them.</p><strong class="signature">— Jenine</strong></div>
+    </section>
+
+    <section class="section ritual">
+      <div class="heading"><div><p class="eyebrow">Make it a ritual</p><h2>Four steps away<br>from the rest of the day.</h2></div></div>
+      <div class="steps"><article><span>01</span><h3>Run it warm.</h3><p>Give the bath enough heat and depth to dissolve slowly and let the fragrance open.</p></article><article><span>02</span><h3>Drop it in.</h3><p>Watch the color, botanicals, shimmer, and fizz turn ordinary water into your chosen mood.</p></article><article><span>03</span><h3>Put it down.</h3><p>The phone. The list. The day. Give the ritual enough room to work on your attitude.</p></article><article><span>04</span><h3>Stay awhile.</h3><p>Soak, breathe, rinse, and step out when you feel like yourself again.</p></article></div>
+    </section>
+
+    <section class="section faq" id="faq">
+      <div><p class="eyebrow">Questions, answered</p><h2>Before you drop in.</h2><p>Clear answers help people buy confidently—and help search engines and answer tools understand exactly what the product is.</p></div>
+      <div class="faq-list">
+        <details><summary>What does “cannabinoid-infused” mean?</summary><p>Cannabinoids are incorporated into the bath-bomb formula alongside fragrance, botanicals, coconut oil, vitamin E, and the ingredients that create the fizzing bath experience. Each product is intended for external bath use.</p></details>
+        <details><summary>Will a bath bomb make me feel intoxicated?</summary><p>No. These are non-intoxicating bath products intended for external use. The experience comes from warm water, fragrance, botanicals, skin-loving oils, and the ritual of slowing down.</p></details>
+        <details><summary>What is the difference between Ritual and Immersion?</summary><p>Ritual is the smaller $11 option for trying a scent or gifting a little luxury. Immersion is the full-size $20 statement bomb with more product and presence.</p></details>
+        <details><summary>Which collection should I choose?</summary><p>Choose Clocked Out for fresh, herbal, cooling, or citrus-forward scents; Do Not Disturb for lavender, chamomile, sandalwood, vanilla, and slower evening profiles; or Main Character Bath for florals, berries, cream notes, romance, gifting, and beautiful water.</p></details>
+        <details><summary>Are the products handmade?</summary><p>Yes. Each batch is mixed, formed, finished, and packed in small quantities. Slight variations in color and botanical placement are part of the handmade character.</p></details>
+        <details><summary>How should I store bath bombs in Florida humidity?</summary><p>Keep them sealed, dry, and away from steam until bath time. A cool cabinet or drawer outside the bathroom is ideal if the room stays humid.</p></details>
+      </div>
+    </section>
+
+    <section class="newsletter"><p class="eyebrow">Join the ritual</p><h2>New scents.<br>First dibs.</h2><p>Get early access to small-batch drops, local pop-ups, creator codes, and the occasional reminder that the bathroom door has a lock for a reason.</p><form id="emailForm"><input type="email" placeholder="Your email address" required><button>Join us →</button></form><small id="formMsg"></small></section>
+  </main>
+
+  <footer><div class="footer-grid"><div><a class="brand footer-brand" href="#top"><b>J9's</b><strong>Canni-Bombs</strong><small>Soak deeper. Feel more.</small></a><p>Handmade cannabinoid-infused bath rituals from North Miami Beach, Florida.</p></div><div><h4>Shop</h4><a href="#shop" data-filter="featured">Best sellers</a><a href="#shop" data-filter="clocked">Clocked Out</a><a href="#shop" data-filter="dnd">Do Not Disturb</a><a href="#shop" data-filter="main">Main Character Bath</a></div><div><h4>About</h4><a href="#story">Our story</a><a href="#faq">FAQs</a><a href="mailto:TinkJenine1234@gmail.com">Wholesale & creators</a></div><div><h4>Contact</h4><a href="mailto:TinkJenine1234@gmail.com">TinkJenine1234@gmail.com</a><span>North Miami Beach, FL</span></div></div><div class="copyright">© <span id="year"></span> J9's Canni-Bombs · External use only · Keep dry until bath time</div></footer>
+
+  <div class="overlay" id="overlay"></div>
+  <aside class="drawer" id="drawer"><header><h2>Your ritual bag</h2><button id="closeBag">×</button></header><div id="bagItems" class="bag-items"></div><footer><div><span>Subtotal</span><strong id="subtotal">$0</strong></div><button class="btn primary" id="checkout">Continue to checkout</button><small>Wix + Square checkout can be connected as the store is published.</small></footer></aside>
+
+  <div class="overlay modal-overlay" id="modalOverlay"></div>
+  <section class="modal" id="modal"><div class="modal-art"><i class="bomb" id="modalBomb"></i></div><div class="modal-copy"><button class="modal-close" id="closeModal">×</button><small id="modalCat"></small><h2 id="modalName"></h2><b id="modalNotes"></b><p id="modalDesc"></p><div class="sizes"><button data-size="Ritual" data-price="11">Ritual <b>$11</b><small>A smaller introduction.</small></button><button class="active" data-size="Immersion" data-price="20">Immersion <b>$20</b><small>The full-size statement soak.</small></button></div><strong class="modal-price" id="modalPrice">$20</strong><button class="btn primary" id="addProduct">Add to ritual bag</button></div></section>
+  <div class="toast" id="toast"></div>
+  <script src="app.js" defer></script>
+</body>
+</html>
