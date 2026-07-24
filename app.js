@@ -1,5 +1,5 @@
-const fixes=document.createElement('link');fixes.rel='stylesheet';fixes.href='scale-fixes.css?v=4';document.head.appendChild(fixes);
-const visual=document.createElement('script');visual.src='visual-fixes.js?v=4';document.body.appendChild(visual);
+const fixes=document.createElement('link');fixes.rel='stylesheet';fixes.href='scale-fixes.css?v=6';document.head.appendChild(fixes);
+const visual=document.createElement('script');visual.src='visual-fixes.js?v=6';document.body.appendChild(visual);
 
 const STORE={checkoutUrl:'',orderEmail:'TinkJenine1234@gmail.com'};
 const products=[
